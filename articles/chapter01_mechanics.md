@@ -3,7 +3,7 @@ title: "機械部品の構成を考える-つくばチャレンジ備忘録01"
 emoji: "🦾"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["つくばチャレンジ", "機械", "ハードウェア"]
-published: true # false: 下書き / true: 公開
+published: false # false: 下書き / true: 公開
 ---
 
 テスト記事です
