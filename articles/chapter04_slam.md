@@ -1,8 +1,8 @@
 ---
-title: "SLAM-つくばチャレンジ備忘録04"
+title: "SLAMをする-つくばチャレンジ備忘録04"
 emoji: "🦾"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ["つくばチャレンジ", "機械", "ハードウェア"]
+topics: ["つくばチャレンジ", "機械", "ソフトウェア"]
 published: true # false: 下書き / true: 公開
 ---
 
