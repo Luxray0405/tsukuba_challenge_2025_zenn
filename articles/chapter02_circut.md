@@ -1,8 +1,8 @@
 ---
-title: "機械部品の構成を考える-つくちゃれ記1"
+title: "機械部品の構成を考える-つくちゃれ記02"
 emoji: "🦾"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ["つくばチャレンジ", "機械", "ハードウェア"]
+topics: ["つくばチャレンジ", "配線", "回路"]
 published: false # false: 下書き / true: 公開
 ---
 
