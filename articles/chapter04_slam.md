@@ -6,9 +6,6 @@ topics: ["つくばチャレンジ", "機械", "ソフトウェア"]
 published: false # false: 下書き / true: 公開
 ---
 
-テスト記事です
-見てくれた人には申し訳ないのですが，まだ執筆練習中で建設中です．
-今しばらくお待ちください
 # SLAMとは
 
 # 3D SLAMのOSS
@@ -19,7 +16,7 @@ DLIO
 # GLIM
 
 ## 導入方法
-基本的な導入方法は[公式ドキュメント](https://koide3.github.io/glim/installation.html)に従ってください．また，[Abudoriさんの記事](https://www.abudorilab.com/entry/2024/08/10/192221)も非常に丁寧に書かれており参考になります．一応，自分がインストールした手順も書いておきます．（公式ドキュメントと同じ）
+基本的な導入方法は[公式ドキュメント](https://koide3.github.io/glim/installation.html)に従ってください．また，[Abudoriさんの記事](https://www.abudorilab.com/entry/2024/08/10/192221)も非常に丁寧に書かれており参考になります．一応，自分がインストールした手順も書いておきます．（公式ドキュメントとほぼ同じ）
 ### 依存関係のインストール
 ```md:依存関係
 sudo apt install libomp-dev libboost-all-dev libmetis-dev \
@@ -117,11 +114,31 @@ topic名の設定についても行います．
 ```
 ros2 run glim_ros glim_rosnode
 ```
-別のターミナルで，rosbagを再生します．~/your_bag_pathを自身のrosbagファイルのパスに書き換えてください．
+別のターミナルで，rosbagを再生します．/your_bag_pathを自身のrosbagファイルのパスに書き換えてください．
 ```
-ros2 bag play ~/your_bag_path
+ros2 bag play /your_bag_path
 ```
-再生を始めると，GLIMのGUI上でmap作成
+再生を始めると，GLIMのGUI上でmap作成が始まります．ここで何も表示されない場合，トピック名などの設定が間違っている可能性が高いです．
 
+rosbagの再生が終了したら，glim_rosnodeを実行しているターミナルでCtrl+Cを押して中断してください．ターミナルに`saved`と表示されたら保存がされています．それ以降の手順は`glim_rosbag`の解説後にまとめて説明します．
+
+次に，`glim_rosbag`の使用方法を解説します．こちらは，センサデータが入っているrosbagを起動時に指定します．
+```
+ros2 run glim_ros glim_rosbag /your_bag_path
+```
+これだけで実行可能な上，rosbagの再生速度を適切に早めてくれます．GPUなしの自分の環境でも3~4倍速で再生してくれました．
+再生が終了したら，同様にCtrl+Cを押して中断してください．
+
+`glim_rosnode`，もしくは`glim_rosbag`の実行が終了すると，`/tmp/dump`にそのデータが保存されます．これは毎回上書きされてしまうので，ホームディレクトリ下などに避難させておきます．
+```
+cp -r /tmp/dump ~/map_data/tsukuba_map
+```
+
+次に，このdumpデータを用いてマップを出力します．まず，以下を実行して`offline_viewer`を開きます．
+
+```
+ros2 run glim_ros offline_viewer
+```
+GUIが立ち上がります．左上の`File`
 ## 
 
