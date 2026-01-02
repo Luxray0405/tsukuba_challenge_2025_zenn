@@ -134,11 +134,23 @@ ros2 run glim_ros glim_rosbag /your_bag_path
 cp -r /tmp/dump ~/map_data/tsukuba_map
 ```
 
+### 地図の編集
 次に，このdumpデータを用いてマップを出力します．まず，以下を実行して`offline_viewer`を開きます．
 
 ```
 ros2 run glim_ros offline_viewer
 ```
-GUIが立ち上がります．左上の`File`
+GUIが立ち上がります．左上の`File`から，先程保存したdumpのフォルダを指定します．  
+Do Optimization? と表示されるのでYes/Noを選択します．するとGLIMの実行結果が表示できます．
+
+画像
+
+この状態で，地図が破綻なく作成できている場合は地図のエクスポートに進んでください．ここからは，地図の後編集の方法について説明します．
+
+地図作成の際に同じ場所を通っていても，その点群が重なっていない（=ループクローズできていない）場合を考えます．
+
+
+### 地図のエクスポート
+
 ## 
 
